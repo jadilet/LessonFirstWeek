@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LessonFirstWeek</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_company">AddCompany</string>
+    <string name="sort_title">Sort by title</string>
+    <string name="sort_date">Sort by date</string>
+    <string name="title_activity_update_company">UpdateCompany</string>
+</resources>
