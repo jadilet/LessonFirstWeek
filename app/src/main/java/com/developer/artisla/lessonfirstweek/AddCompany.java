@@ -43,7 +43,6 @@ public class AddCompany extends AppCompatActivity implements View.OnClickListene
         addLogoBtn = (Button) findViewById(R.id.addLogoBtn);
         addCompanyBtn = (Button) findViewById(R.id.addCompanyBtn);
         image = (ImageView) findViewById(R.id.logo);
-        image.setImageURI(Uri.parse("file://mnt/sdcard/Pictures/twitter-icon.png"));
 
         addLogoBtn.setOnClickListener(this);
         addCompanyBtn.setOnClickListener(this);
@@ -114,6 +113,7 @@ public class AddCompany extends AppCompatActivity implements View.OnClickListene
 
         if(db.addCompany(company) != 0){
             Toast.makeText(AddCompany.this, "Saved!", Toast.LENGTH_SHORT).show();
+            finish();
         }else {
             Toast.makeText(AddCompany.this, "Not saved!", Toast.LENGTH_SHORT).show();
         }
