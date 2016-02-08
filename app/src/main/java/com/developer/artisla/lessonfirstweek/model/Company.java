@@ -2,12 +2,13 @@ package com.developer.artisla.lessonfirstweek.model;
 
 import android.content.Intent;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by artisla on 2/1/16.
  */
-public class Company {
+public class Company implements Serializable {
     private Integer id;
     private String title;
     private String description;

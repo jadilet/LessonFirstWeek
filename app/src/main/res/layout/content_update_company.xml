@@ -10,4 +10,38 @@
     tools:showIn="@layout/activity_update_company"
     tools:context="com.developer.artisla.lessonfirstweek.UpdateCompany">
 
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Company Name"
+        android:id="@+id/titleEdt"
+        />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleEdt"
+        android:hint="Description"
+        android:id="@+id/descriptionEdt"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionEdt"
+        android:text="Update Logo"
+        android:id="@+id/addLogoBtn"
+        />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="500px"
+        android:layout_below="@id/addLogoBtn"
+        android:id="@+id/logoImv"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoImv"
+        android:text="Update Company"
+        android:id="@+id/updateCompanyBtn"
+        />
 </RelativeLayout>

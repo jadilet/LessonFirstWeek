@@ -25,10 +25,10 @@ import com.developer.artisla.lessonfirstweek.model.Company;
 public class AddCompany extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button addLogoBtn, addCompanyBtn;  // The button
-    private ImageView image;// ImageView
+    private Button addLogoBtn, addCompanyBtn;
+    private ImageView logoImv;
     private String realPath;
-    private EditText titleEdt,descriptionEdt;
+    private EditText titleEdt, descriptionEdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +38,11 @@ public class AddCompany extends AppCompatActivity implements View.OnClickListene
         setSupportActionBar(toolbar);
 
 
-        titleEdt = (EditText) findViewById(R.id.title);
-        descriptionEdt = (EditText) findViewById(R.id.description);
+        titleEdt = (EditText) findViewById(R.id.titleEdt);
+        descriptionEdt = (EditText) findViewById(R.id.descriptionEdt);
         addLogoBtn = (Button) findViewById(R.id.addLogoBtn);
         addCompanyBtn = (Button) findViewById(R.id.addCompanyBtn);
-        image = (ImageView) findViewById(R.id.logo);
+        logoImv = (ImageView) findViewById(R.id.logoImv);
 
         addLogoBtn.setOnClickListener(this);
         addCompanyBtn.setOnClickListener(this);
@@ -80,7 +80,7 @@ public class AddCompany extends AppCompatActivity implements View.OnClickListene
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        image.setImageBitmap(bitmap);
+        logoImv.setImageBitmap(bitmap);
 
         Log.d("HMKCODE", "Build.VERSION.SDK_INT:" + sdk);
         Log.d("HMKCODE", "URI Path:" + uriPath);
@@ -102,19 +102,19 @@ public class AddCompany extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private void addCompany(){
-        String title,description;
+    private void addCompany() {
+        String title, description;
 
         title = titleEdt.getText().toString();
         description = descriptionEdt.getText().toString();
 
-        Company company = new Company(title,description,realPath);
+        Company company = new Company(title, description, realPath);
         CompanyReaderDbHelper db = new CompanyReaderDbHelper(this);
 
-        if(db.addCompany(company) != 0){
-            Toast.makeText(AddCompany.this, "Saved!", Toast.LENGTH_SHORT).show();
+        if (db.addCompany(company) != 0) {
+            Toast.makeText(AddCompany.this, "Saved Successfully!", Toast.LENGTH_SHORT).show();
             finish();
-        }else {
+        } else {
             Toast.makeText(AddCompany.this, "Not saved!", Toast.LENGTH_SHORT).show();
         }
 

@@ -10,7 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.developer.artisla.lessonfirstweek.model.Company;
+
 import java.util.List;
 
 
@@ -27,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void showCompanyList() {
 
         CompanyReaderDbHelper db = new CompanyReaderDbHelper(this);
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,6 +102,37 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
 
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case 1:
+                updateCompany();
+                //Toast.makeText(this, "This update menu! " + CustomAdapter.ViewHolder.ID, Toast.LENGTH_SHORT).show();
+                break;
+            case 2:
+                //Toast.makeText(this, "This delete menu! " + CustomAdapter.ViewHolder.ID, Toast.LENGTH_SHORT).show();
+                deleteCompany();
+                break;
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    public void updateCompany(){
+       // Intent intent = new Intent(this,UpdateCompany.class);
+      //  startActivity(intent);
+    }
+
+    public void deleteCompany() {
+        CompanyReaderDbHelper db = new CompanyReaderDbHelper(this);
+        if (db.deleteById()) {
+            Toast.makeText(MainActivity.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+            showCompanyList();
+        } else {
+            Toast.makeText(MainActivity.this, "Try again!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

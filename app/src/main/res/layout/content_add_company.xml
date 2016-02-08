@@ -14,19 +14,19 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Company Name"
-        android:id="@+id/title"
+        android:id="@+id/titleEdt"
         />
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
+        android:layout_below="@id/titleEdt"
         android:hint="Description"
-        android:id="@+id/description"
+        android:id="@+id/descriptionEdt"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/description"
+        android:layout_below="@id/descriptionEdt"
         android:text="Add Logo"
         android:id="@+id/addLogoBtn"
         />
@@ -34,12 +34,12 @@
         android:layout_width="fill_parent"
         android:layout_height="500px"
         android:layout_below="@id/addLogoBtn"
-        android:id="@+id/logo"
+        android:id="@+id/logoImv"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
+        android:layout_below="@id/logoImv"
         android:text="Add Company"
         android:id="@+id/addCompanyBtn"
         />
