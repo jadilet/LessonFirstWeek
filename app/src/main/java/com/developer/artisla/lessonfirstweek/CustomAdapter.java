@@ -103,6 +103,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         viewHolder.getTitleView().setText(mDataSet.get(position).getTitle());
         viewHolder.getDescriptionView().setText(mDataSet.get(position).getDescription());
         viewHolder.getCreated_atView().setText(mDataSet.get(position).getCreated_at());
+
         viewHolder.getLogoView().setImageURI(Uri.parse(mDataSet.get(position).getImagePath()));
 
         viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
